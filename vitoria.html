@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Fim de jogo</title>
+	<style type="text/css" media="screen">
+		body{
+	background-image: url(imagens/bg.jpg);
+	background-repeat: no-repeat;
+}
+	
+	html, body{
+		height: 100%;
+	}
+
+	#QT{
+		font-size: 35px;
+		color: white;
+		background-color: rgba(0,0,0,0.5);
+	}
+	</style>
+	<link rel="stylesheet" type="text/css" href="estilo.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+</head>
+<body id="lose" class="h-100">
+	<div class="container-fluid h-100">
+		<div class="row h-100 align-items-center" >
+			<div class="col-12 ">
+				<div class="d-flex justify-content-center  ">
+					<img src="imagens/vitoria.png" class="img-fluid " alt="">
+					
+					
+				</div>
+				<div class="d-flex justify-content-center ">
+						<button onclick="window.location.href='index.html'" class="btn btn-dark btn-lg mb-2" type="">Reiniciar</button>
+
+					</div>
+					<p  class="text-center" id="QT">
+						<img src="imagens/mosca.png" width="100" height="100" alt="">
+						<span id="QT-JS"></span>
+					</p>
+			</div>
+		</div>
+	</div>
+	<script>
+		var quantidade = window.location.search;
+		quantidade = quantidade.replace('?', '')
+		
+
+		var texto = document.querySelector('#QT-JS');
+
+		texto.innerHTML= 'MORTAS ' + quantidade;
+	</script>
+</body>
+</html>

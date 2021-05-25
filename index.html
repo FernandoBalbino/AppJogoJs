@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Mata mosquito</title>
+	<script src="https://kit.fontawesome.com/e1f28f3225.js" crossorigin="anonymous"></script>
+	<style type="text/css" media="screen">
+		body{
+	background-image: url(imagens/bg.jpg);
+	background-repeat: no-repeat;
+}
+	
+	html, body{
+		height: 100%;
+	}
+
+	#change-nivel{
+		width: auto;
+	}
+	.mute{
+		position: absolute;
+		top: 10px;
+		display: flex;
+		align-items: center;
+	}
+	.fa-volume-up, .fa-volume-mute{
+		color: white;
+		font-size: 40px;
+		margin-left: 5px;
+	}
+	</style>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="estilo.css">
+
+</head>
+<body id="lose" class="h-100">
+	<div class="container-fluid h-100">
+		<div class="mute">
+			
+			
+			<i id="icon" class="fas fa-volume-up"></i>
+		</div>
+		<div class="row h-100 align-items-center" >
+			<div class="col-12 ">
+				<div class="d-flex justify-content-center  ">
+					<img src="imagens/game.png" class="img-fluid " alt="">
+					
+					
+				</div>
+				
+
+					<div class="d-flex justify-content-center ">
+					<select id="change-nivel" name="" class="form-control">
+						<option value="">-- Selecione o nível --</option>
+						<option value="normal">Normal</option>
+						<option value="dificil">Difícil</option>
+						<option value="chuck">Chuck Norris</option>
+						<option value="Impossivel">Impossível</option>
+					</select>
+					</div>
+					
+			</div>
+			<div class="d-flex justify-content-center ">
+						<button onclick="iniciarJogo()" class="btn btn-danger btn-lg" type="">Iniciar jogo</button>
+					</div>
+		</div>
+	</div>
+	<script>
+
+
+
+		var icon = document.querySelector('#icon');
+		icon.addEventListener('click', song)
+		var mute = '|off';
+
+		function iniciarJogo (argument) {
+			var nivel = document.getElementById('change-nivel').value
+			
+			if(nivel === ''){
+				alert('Selecione um nivel para iniciar o jogo')
+				return false;
+			} 
+
+			window.location.href='fase.html?' + `${nivel}` + ` ${mute}`;
+		}
+
+	
+
+		function song(){
+
+		
+			if(icon.getAttribute('class') === 'fas fa-volume-mute'){
+				icon.setAttribute('class', 'fas fa-volume-up')
+				mute = '|off';
+			} else{
+				icon.setAttribute('class', 'fas fa-volume-mute')
+				mute = '|on';
+			}
+
+		}
+
+
+	</script>
+</body>
+</html>
